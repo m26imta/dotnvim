@@ -58,3 +58,51 @@ keymap("n", "-", "<C-x>", opts)
 keymap("n", "=", "<C-a>", opts)
 
 ------------------------------------
+-- Visual --
+-- Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
+
+-- Move text up and down
+--keymap("v", "<A-j>", ":m .+1<CR>==", opts)
+--keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "p", '"_dP', opts) -- better paste
+
+----------------------------
+-- Visual Block --
+-- Move text up and down
+keymap("n", "J", "<Nop>", opts)
+keymap("n", "K", "<Nop>", opts)
+--keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+--keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+--keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+--keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- lazyvim
+-- Move Lines
+-- keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { noremap = true, silent = true, desc = "Move down" })
+-- keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { noremap = true, silent = true, desc = "Move down" })
+keymap("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { noremap = true, silent = true, desc = "Move down" })
+keymap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { noremap = true, silent = true, desc = "Move down" })
+keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", { noremap = true, silent = true, desc = "Move down" })
+keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { noremap = true, silent = true, desc = "Move down" })
+
+-- NvimTree
+--keymap("n", "<c-space><c-e>", ":NvimTreeToggle<cr>", opts)
+
+-- search selected text with <c-f>
+keymap("v", "<c-f>", 'y<ESC>/<c-r>"<CR>', opts)
+
+-- Vim search and replace selected text
+-- https://stackoverflow.com/a/676619
+vim.cmd([[vnoremap <C-r><C-e> "hy:%s/<C-r>h//gc<left><left><left>]])
+
+-- Select entire line in VIM, without the new line character
+-- https://stackoverflow.com/a/61624228
+vim.cmd([[
+vnoremap al :<C-U>normal 0v$h<CR>
+omap al :normal val<CR>
+vnoremap il :<C-U>normal ^vg_<CR>
+omap il :normal vil<CR>
+]])
+
