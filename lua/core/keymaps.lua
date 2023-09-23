@@ -39,3 +39,23 @@ keymap("n", "<C-q><C-x>", "<cmd>q!<CR>", opts)
 keymap("n", "<ESC>", "<cmd>nohlsearch<CR>", opts)
 
 -- fast save load config file
+vim.cmd("nnoremap <c-s> :w<CR>")
+vim.cmd([[
+""-- Save as sudo
+cnoremap w!! execute 'silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
+]])
+vim.cmd("nnoremap <leader>w :w<CR>")
+vim.cmd("nnoremap <leader>LL :e $MYVIMRC<CR>")
+
+-- Do not yank with x
+keymap("n", "x", '"_x', opts)
+keymap({ "c", "t", "i" }, "<c-r><c-r>", '<c-r>"', { noremap = true })
+
+-- Select all with Ctrl+a
+keymap("n", "<C-a>", "ggVG", opts)
+
+--
+keymap("n", "-", "<C-x>", opts)
+keymap("n", "=", "<C-a>", opts)
+
+------------------------------------
