@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -28,3 +29,13 @@ keymap("n", "<C-l>", "<C-w><RIGHT>", opts)
 -- Navigate buffers
 keymap("n", "L", ":bn<CR>", opts)
 keymap("n", "H", ":bp<CR>", opts)
+keymap("n", "<tab>", ":bn<CR>", opts)
+keymap("n", "<S-tab>", ":bp<CR>", opts)
+--keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
+--keymap("n", "<A-q>", "<cmd>Bwipeout<CR>", opts)
+keymap("n", "<C-q><C-x>", "<cmd>q!<CR>", opts)
+
+-- Clear highlights
+keymap("n", "<ESC>", "<cmd>nohlsearch<CR>", opts)
+
+-- fast save load config file
