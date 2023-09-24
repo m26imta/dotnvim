@@ -1,5 +1,5 @@
 require("core.options")
-
 require("core.keymaps")
 require("core.autocmd")
 require("core.utils")
+require("core.lazy_boostrap")
