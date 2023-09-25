@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts) -- Remove space as no-leader
-keymap("", "<c-`>", "<Nop>", opts) -- Remove grave-key ( `` )
+keymap("", "<c-`>", "<Nop>", opts)   -- Remove grave-key ( `` )
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -106,3 +106,5 @@ vnoremap il :<C-U>normal ^vg_<CR>
 omap il :normal vil<CR>
 ]])
 
+-- keymap("i", "<a-F>", "<esc><cmd>lua vim.lsp.buf.format()<cr>", opts)
+-- keymap("n", "<a-F>", "<cmd>lua vim.lsp.buf.format()<cr>", opts)

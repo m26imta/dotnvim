@@ -66,6 +66,8 @@ local function set_lsp_keymaps(_, bufnr)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts) -- jump to next diagnostic in buffer
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts) -- jump to next diagnostic in buffer
 
+  vim.keymap.set({'n','i'}, '<a-F>', vim.lsp.buf.format, bufopts)
+
   -- Workspace
   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
