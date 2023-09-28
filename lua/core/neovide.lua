@@ -4,7 +4,7 @@ if exists('g:neovide')
 endif
 ]])
 
-if vim.fn.exists("g:neovide") then
+if vim.fn.exists("g:neovide")==1 then
   -- try set font
   vim.cmd([[set guifont=agave\ NFM\ r:h13]])
 end
