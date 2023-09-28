@@ -219,7 +219,7 @@ local options = {
       },
     },
   }),
-  mapping = nvchadmapping,
+  mapping = mymapping,
   formatting = myformatting,
 }
 
